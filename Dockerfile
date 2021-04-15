@@ -1,11 +1,15 @@
-FROM python:3.7-alpine
+FROM ubuntu:latest
+
+RUN apt-get -y update && \
+    apt-get -y install software-properties-common && \
+    apt-get -y install python3 python3-dev python3-pip && \
+    pip3 install --upgrade setuptools pip3
 
 WORKDIR /app
 
 COPY requirement.txt requirement.txt
 
-RUN python3 -m pip install --upgrade pip setuptools wheel & python3 -m pip install -r requirement.txt & python3 -m pip install opencv-python opencv-contrib-python-headless
-
+RUN python3 -m pip install --upgrade pip setuptools wheel & python3 -m pip install -r requirement.txt
 COPY . .
 
 EXPOSE $PORT
