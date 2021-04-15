@@ -2,7 +2,7 @@ FROM frolvlad/alpine-python2
 
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
+COPY requirement.txt requirement.txt
 
 RUN pip2 install -r requirements.txt
 
