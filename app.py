@@ -10,15 +10,24 @@ def index(name=None):
 
 @app.route('/exec')
 def parse(name=None):
-    import face_recognize
-    print("done")
-    return render_template('index.html',name=name)
+    try:
+        import face_recognize
+        print("done")
+        return render_template('index.html',name=name)
+    
+    except:
+        return "<h2>Face Recognization error</h2> <br> <p> Unavaliable to recoginze the face...</p>"
+    
 
 @app.route('/exec2')
 def parse1(name=None):
-    import create_data
-    print("done")
-    return render_template('index.html',name=name)
+    try:
+        import create_data
+        print("done")
+        return render_template('index.html',name=name)
+    except:
+        return "<h2>Dataset Preparation Problem </h2> <br> <p>Unavaliable to create a Dataset</p>"
+    
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',  port = int(os.environ.get("PORT", 5000)) )
