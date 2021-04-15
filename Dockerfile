@@ -9,7 +9,8 @@ WORKDIR /app
 
 COPY requirement.txt requirement.txt
 
-RUN python3 -m pip install --upgrade pip setuptools wheel & python3 -m pip install -r requirement.txt
+RUN pip3 install -r requirement.txt
+
 COPY . .
 
 EXPOSE $PORT
