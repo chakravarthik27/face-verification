@@ -3,7 +3,7 @@ FROM ubuntu:latest
 RUN apt-get -y update && \
     apt-get -y install software-properties-common && \
     apt-get -y install python3 python3-dev python3-pip && \
-    pip3 install --upgrade setuptools pip3
+    pip3 install --upgrade setuptools pip
 
 WORKDIR /app
 
