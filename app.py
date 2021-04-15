@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+import os
 
 app = Flask(__name__)
 
@@ -19,5 +20,5 @@ def parse1(name=None):
     return render_template('index.html',name=name)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',  port = int(os.environ.get("PORT", 5000)) )
     #app.debug = True
